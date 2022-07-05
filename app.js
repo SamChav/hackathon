@@ -34,24 +34,16 @@ const renderer1 = new THREE.WebGLRenderer();
 renderer1.setSize(350, 150);
 box1.appendChild(renderer1.domElement);
 
-box1.addEventListener('keypress' , (event1) => {
-    const keyName = event1.key;
-    if (keyName == 'z') {
-        alert('hey i pushed z')
-    } else {
-        null
-    }
-})
-
 const geometry1 = new THREE.SphereGeometry(15, 32, 16);
-const material1 = new THREE.MeshBasicMaterial({ color: 0xa03225 });
+const material1 = new THREE.MeshBasicMaterial({ color: 0xfe3838 });
 const sphere1 = new THREE.Mesh(geometry1, material1);
 scene1.add(sphere1);
 camera1.position.z = 16;
+
 //scene 2
 const scene2 = new THREE.Scene();
 const camera2 = new THREE.PerspectiveCamera(
-  160,
+  35,
   window.innerWidth / window.innerHeight,
   0.1,
   1000
@@ -61,15 +53,16 @@ const renderer2 = new THREE.WebGLRenderer();
 renderer2.setSize(350, 150);
 box2.appendChild(renderer2.domElement);
 
-const geometry2 = new THREE.SphereGeometry(15, 32, 16);
-const material2 = new THREE.MeshBasicMaterial({ color: 0xa03225 });
+const geometry2 = new THREE.BoxGeometry(1, 1, 1);
+const material2 = new THREE.MeshBasicMaterial({ color: 0x01fb1d });
 const sphere2 = new THREE.Mesh(geometry2, material2);
 scene2.add(sphere2);
-camera2.position.z = 16;
+camera2.position.z = 5;
+
 //scene 3
 const scene3 = new THREE.Scene();
 const camera3 = new THREE.PerspectiveCamera(
-  160,
+  35,
   window.innerWidth / window.innerHeight,
   0.1,
   1000
@@ -79,15 +72,19 @@ const renderer3 = new THREE.WebGLRenderer();
 renderer3.setSize(350, 150);
 box3.appendChild(renderer3.domElement);
 
-const geometry3 = new THREE.SphereGeometry(15, 32, 16);
-const material3 = new THREE.MeshBasicMaterial({ color: 0xa03225 });
+const geometry3 = new THREE.RingGeometry(15, 32, 16);
+const material3 = new THREE.MeshBasicMaterial({
+  color: 0xd3fb01,
+  side: THREE.DoubleSide,
+});
 const sphere3 = new THREE.Mesh(geometry3, material3);
 scene3.add(sphere3);
-camera3.position.z = 16;
+camera3.position.z = 105;
+
 //scene 4
 const scene4 = new THREE.Scene();
 const camera4 = new THREE.PerspectiveCamera(
-  160,
+  120,
   window.innerWidth / window.innerHeight,
   0.1,
   1000
@@ -97,15 +94,16 @@ const renderer4 = new THREE.WebGLRenderer();
 renderer4.setSize(350, 150);
 box4.appendChild(renderer4.domElement);
 
-const geometry4 = new THREE.SphereGeometry(15, 32, 16);
-const material4 = new THREE.MeshBasicMaterial({ color: 0xa03225 });
+const geometry4 = new THREE.TetrahedronGeometry(20, 1);
+const material4 = new THREE.MeshBasicMaterial({ color: 0xfd5cff });
 const sphere4 = new THREE.Mesh(geometry4, material4);
 scene4.add(sphere4);
-camera4.position.z = 16;
+camera4.position.z = 25;
+
 //scene 5
 const scene5 = new THREE.Scene();
 const camera5 = new THREE.PerspectiveCamera(
-  160,
+  120,
   window.innerWidth / window.innerHeight,
   0.1,
   1000
@@ -115,11 +113,12 @@ const renderer5 = new THREE.WebGLRenderer();
 renderer5.setSize(350, 150);
 box5.appendChild(renderer5.domElement);
 
-const geometry5 = new THREE.SphereGeometry(15, 32, 16);
-const material5 = new THREE.MeshBasicMaterial({ color: 0xa03225 });
+const geometry5 = new THREE.TorusGeometry(10, 3, 16, 100);
+const material5 = new THREE.MeshBasicMaterial({ color: 0xf4f4f4 });
 const sphere5 = new THREE.Mesh(geometry5, material5);
 scene5.add(sphere5);
-camera5.position.z = 16;
+camera5.position.z = 15;
+
 //scene 6
 const scene6 = new THREE.Scene();
 const camera6 = new THREE.PerspectiveCamera(
@@ -134,10 +133,28 @@ renderer6.setSize(350, 150);
 box6.appendChild(renderer6.domElement);
 
 const geometry6 = new THREE.SphereGeometry(15, 32, 16);
-const material6 = new THREE.MeshBasicMaterial({ color: 0xa03225 });
+const material6 = new THREE.MeshBasicMaterial({ color: 0xfa8400 });
 const sphere6 = new THREE.Mesh(geometry6, material6);
 scene6.add(sphere6);
 camera6.position.z = 16;
+
+//want to convert this to play a sound corresponding to a clicked shape
+
+body.addEventListener("keypress", (event) => {
+  if (event.key == 1) {
+    alert("1");
+  } else if (event.key == 2) {
+    alert("2");
+  } else if (event.key == 3) {
+    alert("3");
+  } else if (event.key == 4) {
+    alert("4");
+  } else if (event.key == 5) {
+    alert("5");
+  } else if (event.key == 6) {
+    alert("6");
+  }
+});
 
 //rendering the scenes + rotations
 
