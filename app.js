@@ -23,6 +23,7 @@ document.body.append(box6);
 
 //scene 1
 const scene1 = new THREE.Scene();
+scene1.background = new THREE.Color( 0x11f2f4);
 const camera1 = new THREE.PerspectiveCamera(
   160,
   window.innerWidth / window.innerHeight,
@@ -42,6 +43,7 @@ camera1.position.z = 16;
 
 //scene 2
 const scene2 = new THREE.Scene();
+scene2.background = new THREE.Color( 0x0011ff);
 const camera2 = new THREE.PerspectiveCamera(
   35,
   window.innerWidth / window.innerHeight,
@@ -55,12 +57,14 @@ box2.appendChild(renderer2.domElement);
 
 const geometry2 = new THREE.BoxGeometry(1, 1, 1);
 const material2 = new THREE.MeshBasicMaterial({ color: 0x01fb1d });
-const sphere2 = new THREE.Mesh(geometry2, material2);
-scene2.add(sphere2);
+const cube2 = new THREE.Mesh(geometry2, material2);
+scene2.add(cube2);
 camera2.position.z = 5;
 
 //scene 3
 const scene3 = new THREE.Scene();
+scene3.background = new THREE.Color( 0xff00bf);
+
 const camera3 = new THREE.PerspectiveCamera(
   35,
   window.innerWidth / window.innerHeight,
@@ -77,12 +81,14 @@ const material3 = new THREE.MeshBasicMaterial({
   color: 0xd3fb01,
   side: THREE.DoubleSide,
 });
-const sphere3 = new THREE.Mesh(geometry3, material3);
-scene3.add(sphere3);
+const ring3 = new THREE.Mesh(geometry3, material3);
+scene3.add(ring3);
 camera3.position.z = 105;
 
 //scene 4
 const scene4 = new THREE.Scene();
+scene4.background = new THREE.Color( 0x00ff20);
+
 const camera4 = new THREE.PerspectiveCamera(
   120,
   window.innerWidth / window.innerHeight,
@@ -96,12 +102,14 @@ box4.appendChild(renderer4.domElement);
 
 const geometry4 = new THREE.TetrahedronGeometry(20, 1);
 const material4 = new THREE.MeshBasicMaterial({ color: 0xfd5cff });
-const sphere4 = new THREE.Mesh(geometry4, material4);
-scene4.add(sphere4);
+const tetrahedron4 = new THREE.Mesh(geometry4, material4);
+scene4.add(tetrahedron4);
 camera4.position.z = 25;
 
 //scene 5
 const scene5 = new THREE.Scene();
+scene5.background = new THREE.Color( 0xff3030);
+
 const camera5 = new THREE.PerspectiveCamera(
   120,
   window.innerWidth / window.innerHeight,
@@ -115,8 +123,8 @@ box5.appendChild(renderer5.domElement);
 
 const geometry5 = new THREE.TorusGeometry(10, 3, 16, 100);
 const material5 = new THREE.MeshBasicMaterial({ color: 0xf4f4f4 });
-const sphere5 = new THREE.Mesh(geometry5, material5);
-scene5.add(sphere5);
+const torus5 = new THREE.Mesh(geometry5, material5);
+scene5.add(torus5);
 camera5.position.z = 15;
 
 //scene 6
@@ -140,41 +148,46 @@ camera6.position.z = 16;
 
 //want to convert this to play a sound corresponding to a clicked shape
 
-body.addEventListener("keypress", (event) => {
-  if (event.key == 1) {
-    alert("1");
-  } else if (event.key == 2) {
-    alert("2");
-  } else if (event.key == 3) {
-    alert("3");
-  } else if (event.key == 4) {
-    alert("4");
-  } else if (event.key == 5) {
-    alert("5");
-  } else if (event.key == 6) {
-    alert("6");
-  }
+box1.addEventListener("click", (event) => {
+ (alert('sound1'))
 });
+box2.addEventListener("click", (event) => {
+    (alert('sound2'))
+   });
+   box3.addEventListener("click", (event) => {
+    (alert('sound3'))
+   });
+   box4.addEventListener("click", (event) => {
+    (alert('sound4'))
+   });
+   box5.addEventListener("click", (event) => {
+    (alert('sound5'))
+   });
+   box6.addEventListener("click", (event) => {
+    (alert('sound6'))
+   });
+
+
 
 //rendering the scenes + rotations
 
 function animate() {
   requestAnimationFrame(animate);
 
-  sphere1.rotation.x += 0.005;
+  sphere1.rotation.x += 0.015;
   sphere1.rotation.y += 0.005;
 
-  sphere2.rotation.x += 0.005;
-  sphere2.rotation.y += 0.005;
+  cube2.rotation.x += 0.005;
+  cube2.rotation.y += 0.005;
 
-  sphere3.rotation.x += 0.005;
-  sphere3.rotation.y += 0.005;
+  ring3.rotation.x += 0.000;
+  ring3.rotation.y += 0.005;
 
-  sphere4.rotation.x += 0.005;
-  sphere4.rotation.y += 0.005;
+  tetrahedron4.rotation.x += 0.005;
+  tetrahedron4.rotation.y += 0.005;
 
-  sphere5.rotation.x += 0.005;
-  sphere5.rotation.y += 0.005;
+  torus5.rotation.x += 0.005;
+  torus5.rotation.y += 0.000;
 
   sphere6.rotation.x += 0.005;
   sphere6.rotation.y += 0.005;

@@ -1,7 +1,14 @@
+html {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,  #a9ff98 0%,#b62dff 100%);
+    overflow: hidden;
+  }
+
 .body {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    background-color: black;
+    margin-top: 15%;
 }
